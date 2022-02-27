@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle</title>
+    <style>
+        #wrapper{
+            position: relative;
+            background-color:  #050210;
+            width: 570px;
+            height: 570px;
+            margin: 10px auto; 
+        }
+        
+        #ring{
+            position: absolute;
+            margin: 110px 110px;
+            background: linear-gradient( #fb5dad, #55fb9f, #b97aff);
+            border-radius: 100%;
+            width: 350px;
+            height: 350px;
+            animation: krug 5s infinite linear;
+        }
+
+        #ring::before{
+            content: '';
+            position: absolute;
+            background: linear-gradient( #fb5dad, #55fb9f, #b97aff);
+            border-radius: 100%;
+            width: 350px;
+            height: 350px;
+            animation: krug 5s infinite linear;
+            filter: blur(40px);
+        }
+     
+        #center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+        }
+
+        #center::before, #center::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 100%;
+            z-index: 2;
+        }
+
+        #center::before {
+            width: 280px;
+            height: 280px;
+            background-color:  #050210;
+        }
+
+        #center::after {
+            width: 280px;
+            height: 280px;
+            background-color:  #141122;
+            animation: crni 1.5s ease-in-out infinite alternate;
+            animation-direction: normal;
+        }
+
+        @keyframes krug {
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(359deg);
+            }
+        }
+
+        @keyframes crni {
+            from {
+                width: 0px;
+                height: 0px;
+            }
+            to {
+                width: 280px;
+                height: 280px;
+            }
+        }     
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="ring">
+            <div id="center"></div><!--end center-->
+        </div><!--end ring-->
+    </div><!--end wrapper-->
+</body>
+</html>
